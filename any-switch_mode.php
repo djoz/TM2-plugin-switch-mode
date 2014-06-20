@@ -7,20 +7,20 @@ global $switchmode;
 function sm_startup($aseco, $command) {
     global $switchmode;
     $switchmode = new SwitchMode($aseco);
-	$counter = 2;//start with TA
+    $swichtmode->counter = 2;//start with TA
 }
 
 function sm_endRound($aseco) {
 	
 	
-	if($counter == 2){//TA
-		$counter--;
+	if($switchmode->counter == 2){//TA
+		$switchmode->counter--;
 		$aseco->client->query('ReplayMap');
 	}
 	else{//Rounds
-		$counter++;
+		$switchmode->counter++;
 	}
-	$aseco->client->query('SetGameMode('.$counter.')');
+	$aseco->client->query('SetGameMode('.$switchmode->counter.')');
 }
 
 
