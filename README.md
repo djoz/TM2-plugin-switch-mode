@@ -11,9 +11,9 @@ I don't know how to right that properly, but it would looks something like this.
 
 int GetGameMode()
 if ($xaseco GameMode(1)
-    SetGameMode(2)
-    RestartChallenge()
+    ;SetGameMode(2) 
+    ;RestartChallenge() 
 if ($xaseco Gamemode(2)
-    SetGameMode(1)
+    ;SetGameMode(1)
     
 What do you think ?
