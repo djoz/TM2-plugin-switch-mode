@@ -15,7 +15,7 @@ function sm_endRound($aseco) {
 	
 	if($counter == 2){//TA
 		$counter--;
-		$aseco->client->query('RestartMap');
+		$aseco->client->query('ReplayMap');
 	}
 	else{//Rounds
 		$counter++;
