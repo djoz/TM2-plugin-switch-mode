@@ -1,38 +1,18 @@
 <?php
-Aseco::registerEvent('onStartup', 'sm_startup');
-Aseco::registerEvent('onEndMap', 'sm_endRound');
+Aseco::registerEvent('onEndMap', 'sm_endMap');
 
-global $switchmode;
 
-function sm_startup($aseco, $command) {
-    global $switchmode;
-    $switchmode = new SwitchMode($aseco);
-}
+function sm_endMap($aseco) {
 
-function sm_endRound($aseco) {
-global $switchmode;
+$gamemode = $aseco->client->query('GetGameMode()');
 
-if($switchmode->counter == 2){//TA
-$switchmode->counter = 1;
-$aseco->client->query('SetGameMode(2)');
+if($gamemode == 2){//TA
+$aseco->client->query('SetGameMode(1)');
 $aseco->client->query('RestartMap');
 }
-else{//Rounds
-$switchmode->counter = 2;
-$aseco->client->query('SetGameMode(1)');
-}
-
+else if($gamemode == 1){//Rounds
+$aseco->client->query('SetGameMode(2)');
 }
 
 
-class SwitchMode {
-    private $aseco;
-public $counter;
-    
-
-    function SwitchMode($aseco) {
-        $this->aseco = $aseco;
-		$this->counter = 2;
-    }
-}
 ?>
