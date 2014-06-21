@@ -26,7 +26,7 @@ function sm_endRound($aseco) {
 
 class SwitchMode {
     private $aseco;
-	private $counter;
+	$counter;
     
 
     function SwitchMode($aseco) {
