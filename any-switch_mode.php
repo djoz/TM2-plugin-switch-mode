@@ -7,7 +7,7 @@ global $switchmode;
 function sm_startup($aseco, $command) {
     global $switchmode;
     $switchmode = new SwitchMode($aseco);
-    $swichtmode->counter = 2;//start with TA
+    $switchmode->counter = 2;//start with TA
 }
 
 function sm_endRound($aseco) {
