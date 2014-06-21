@@ -17,3 +17,6 @@ if ($xaseco Gamemode(2)
     ;SetGameMode(1)
     
 What do you think ?
+
+doe-eye: finally i found out, that GetGameMode() always delivered the same value... seems to fetch the match-settings-value or sth like that. Tried it with aseco->server->gameinfo->mode et voilà :) now it works!
+
